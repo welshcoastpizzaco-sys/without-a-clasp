@@ -234,7 +234,7 @@ ul { list-style: none; }
   font-family: 'Cormorant SC', serif;
   font-size: 10px;
   letter-spacing: 0.35em;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.72);
   transition: color 0.25s;
 }
 .overlay-social a:hover { color: var(--sage); }
@@ -375,7 +375,7 @@ ul { list-style: none; }
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.75);
   font-family: 'Cormorant SC', serif;
   font-size: 10px;
   letter-spacing: 0.3em;
@@ -488,7 +488,7 @@ ul { list-style: none; }
   font-family: 'Cormorant SC', serif;
   font-size: 11px;
   letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.7);
 }
 .split__img-accent {
   position: absolute;
@@ -590,7 +590,7 @@ ul { list-style: none; }
   font-family: 'Cormorant SC', serif;
   font-size: 10px;
   letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.7);
   white-space: nowrap;
 }
 
@@ -613,7 +613,7 @@ ul { list-style: none; }
   font-family: 'Cormorant SC', serif;
   font-size: 11px;
   letter-spacing: 0.35em;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.82);
   transition: color 0.25s;
 }
 .gallery-link:hover { color: var(--gold); }
@@ -704,7 +704,7 @@ ul { list-style: none; }
   margin-bottom: 44px;
 }
 .on-sage .cta__sub { color: rgba(44,48,42,0.82); }
-.on-dark .cta__sub { color: rgba(255,255,255,0.5); }
+.on-dark .cta__sub { color: rgba(255,255,255,0.82); }
 
 /* ── 14. TESTIMONIALS ─────────────────────────────────── */
 .testimonials { background: var(--charcoal); padding: var(--section-pad); }
@@ -774,7 +774,7 @@ ul { list-style: none; }
   font-family: 'Cormorant SC', serif;
   font-size: 10px;
   letter-spacing: 0.35em;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.78);
 }
 .stat-sep { width: 1px; height: 36px; background: rgba(255,255,255,0.1); }
 
@@ -895,7 +895,7 @@ ul { list-style: none; }
   margin-bottom: 6px;
 }
 .addon__price { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--gold); }
-.addon__desc { font-size: 12px; color: rgba(255,255,255,0.42); line-height: 1.7; margin-top: 8px; font-weight: 200; }
+.addon__desc { font-size: 12px; color: rgba(255,255,255,0.82); line-height: 1.7; margin-top: 8px; font-weight: 200; }
 
 /* ── 17. GROUP BOOKING ────────────────────────────────── */
 .group { background: var(--sage); }
@@ -946,7 +946,7 @@ ul { list-style: none; }
   font-family: 'Cormorant SC', serif;
   font-size: 9px;
   letter-spacing: 0.25em;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.82);
 }
 
 /* ── 18. INCLUDES BAR ─────────────────────────────────── */
@@ -1410,9 +1410,9 @@ a.contact-detail__value:hover { color: var(--charcoal); }
   font-family: 'Cormorant SC', serif;
   font-size: 9px;
   letter-spacing: 0.45em;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.88);
 }
-.footer-tagline { font-size: 13px; font-weight: 200; color: rgba(255,255,255,0.72); line-height: 1.8; }
+.footer-tagline { font-size: 13px; font-weight: 200; color: rgba(255,255,255,0.9); line-height: 1.8; }
 .footer-nav {
   display: flex;
   gap: 28px;
@@ -1424,7 +1424,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
   font-family: 'Cormorant SC', serif;
   font-size: 10px;
   letter-spacing: 0.28em;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.82);
   transition: color 0.25s;
 }
 .footer-nav a:hover { color: var(--white); }
@@ -1433,13 +1433,13 @@ a.contact-detail__value:hover { color: var(--charcoal); }
   justify-content: space-between;
   align-items: center;
 }
-.footer-copy { font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); }
+.footer-copy { font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.78); }
 .footer-social { display: flex; gap: 20px; }
 .footer-social a {
   font-family: 'Cormorant SC', serif;
   font-size: 10px;
   letter-spacing: 0.28em;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.82);
   transition: color 0.25s;
 }
 .footer-social a:hover { color: var(--white); }
