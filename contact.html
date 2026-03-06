@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Book a permanent jewellery consultation with Without a Clasp — get in touch to arrange your private appointment."/>
+  <title>Contact — Without a Clasp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <header class="site-nav" role="banner">
+    <a href="index.html" class="nav-logo">Without a <span>Clasp</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay" role="navigation">
+    <div class="nav-overlay-inner">
+      <span class="overlay-eyebrow">Permanent Jewellery</span>
+      <ul class="overlay-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experience.html">The Experience</a></li>
+        <li><a href="prices.html">Prices</a></li>
+        <li><a href="aftercare.html">Aftercare</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="overlay-rule"></div>
+      <a href="contact.html" class="overlay-cta">Book a Consultation</a>
+      <div class="overlay-social">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ── PAGE HERO ── -->
+    <section class="page-hero">
+      <div class="page-hero__inner">
+        <div class="breadcrumb">Home &nbsp;/&nbsp; <span>Contact</span></div>
+        <h1 class="page-title fade-in">Let's Create Something <em>Just for You</em></h1>
+        <div class="page-rule fade-in delay-1"></div>
+        <p class="page-subtitle fade-in delay-1">Reach out to arrange your private consultation. I'd love to hear what you have in mind.</p>
+      </div>
+    </section>
+
+    <!-- ── CONTACT LAYOUT ── -->
+    <section class="bg-cream section-pad-lg" aria-label="Contact form and details">
+      <div class="contact-layout inner">
+
+        <!-- FORM COLUMN -->
+        <div class="contact-form-wrap fade-in">
+          <span class="section-tag">Send a Message</span>
+          <h2 class="section-title">Book your <em>consultation</em></h2>
+          <div class="gold-line"></div>
+
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name <span class="req">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name"/>
+                <span class="form-error" id="nameError">Please enter your name.</span>
+              </div>
+            </div>
+
+            <div class="form-row form-row--two">
+              <div class="form-group">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email"/>
+                <span class="form-error" id="emailError">Please enter a valid email address.</span>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="optional">(optional)</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000" autocomplete="tel"/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="interest">I'm interested in… <span class="req">*</span></label>
+                <div class="select-wrap">
+                  <select id="interest" name="interest" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="bracelet">Bracelet / Wrist chain</option>
+                    <option value="anklet">Anklet</option>
+                    <option value="necklace">Necklace</option>
+                    <option value="ring">Finger chain / Ring</option>
+                    <option value="multiple">Multiple pieces</option>
+                    <option value="group">Group booking</option>
+                    <option value="reweld">Re-weld of existing piece</option>
+                    <option value="other">Just exploring — not sure yet</option>
+                  </select>
+                  <svg class="select-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                    <path d="M1 1L6 7L11 1" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <span class="form-error" id="interestError">Please select an option.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="message">Your Message <span class="req">*</span></label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me a little about what you're looking for — the occasion, the style you have in mind, or simply that you're curious. No detail is too small." required></textarea>
+                <span class="form-error" id="messageError">Please enter a message.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="referral">How did you hear about us? <span class="optional">(optional)</span></label>
+                <div class="select-wrap">
+                  <select id="referral" name="referral">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="google">Google search</option>
+                    <option value="friend">Friend or family</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <svg class="select-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+                    <path d="M1 1L6 7L11 1" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-dark contact-submit">Send Message</button>
+
+            <div class="form-success" id="formSuccess" aria-live="polite">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="#C9A84C" stroke-width="1"/>
+                <path d="M7 12L10.5 15.5L17 9" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Thank you — I'll be in touch very soon.
+            </div>
+
+          </form>
+        </div>
+
+        <!-- INFO COLUMN -->
+        <div class="contact-info fade-in delay-1">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Other ways to <em>reach me</em></h2>
+          <div class="gold-line"></div>
+
+          <div class="contact-details">
+
+            <div class="contact-detail">
+              <div class="contact-detail__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#C9A84C" stroke-width="1" fill="none"/>
+                  <path d="M22 6L12 13L2 6" stroke="#C9A84C" stroke-width="1"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-detail__label">Email</div>
+                <a href="mailto:hello@withoutaclasp.co.uk" class="contact-detail__value">hello@withoutaclasp.co.uk</a>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="5" y="2" width="14" height="20" rx="2" stroke="#C9A84C" stroke-width="1"/>
+                  <circle cx="12" cy="17" r="1" fill="#C9A84C"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-detail__label">Phone / WhatsApp</div>
+                <a href="tel:+447700000000" class="contact-detail__value">+44 7700 000 000</a>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2Z" stroke="#C9A84C" stroke-width="1"/>
+                  <circle cx="12" cy="9" r="2.5" stroke="#C9A84C" stroke-width="1"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-detail__label">Location</div>
+                <span class="contact-detail__value">[Your Studio / Salon Address]<br>Mobile visits available for groups</span>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" stroke="#C9A84C" stroke-width="1"/>
+                  <path d="M12 6V12L16 14" stroke="#C9A84C" stroke-width="1" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-detail__label">Response Time</div>
+                <span class="contact-detail__value">I aim to reply within 24 hours</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="contact-social">
+            <div class="contact-social__label">Follow Along</div>
+            <div class="contact-social__links">
+              <a href="#" class="contact-social__link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" stroke="#C9A84C" stroke-width="1"/>
+                  <circle cx="12" cy="12" r="5" stroke="#C9A84C" stroke-width="1"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="#C9A84C"/>
+                </svg>
+                Instagram
+              </a>
+              <a href="#" class="contact-social__link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" stroke="#C9A84C" stroke-width="1"/>
+                  <path d="M10 9V15M14 9V15M10 12H14" stroke="#C9A84C" stroke-width="1" stroke-linecap="round"/>
+                </svg>
+                TikTok
+              </a>
+            </div>
+          </div>
+
+          <!-- WHAT TO EXPECT NOTE -->
+          <div class="contact-expect">
+            <div class="contact-expect__title">What happens next</div>
+            <ol class="contact-expect__list">
+              <li>I'll reply personally — usually within 24 hours.</li>
+              <li>We'll arrange a time and date that suits you.</li>
+              <li>You'll receive a brief confirmation with everything you need to know before your appointment.</li>
+              <li>That's it — just turn up and enjoy the experience.</li>
+            </ol>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── GROUP BOOKINGS NOTE ── -->
+    <section class="cta-charcoal" aria-label="Group bookings">
+      <div class="cta__inner fade-in">
+        <span class="section-tag">Celebrations &amp; Groups</span>
+        <h2 class="section-title on-dark">Planning something <em>special?</em></h2>
+        <p class="cta__sub on-dark" style="color:rgba(255,255,255,0.5)">Hen parties, birthdays, anniversaries, and friendship occasions — group bookings are welcome and warmly catered for. Simply select "Group booking" in the form above and tell me a little about your occasion.</p>
+        <a href="prices.html#group" class="btn btn-gold">See Group Pricing</a>
+      </div>
+    </section>
+
+    <!-- ── REASSURANCE BAR ── -->
+    <section class="bg-cream section-pad" aria-label="Reassurance">
+      <div class="inner text-center fade-in" style="max-width:720px">
+        <span class="section-tag">No Pressure. No Obligation.</span>
+        <h2 class="section-title">Every conversation starts with <em>just a hello.</em></h2>
+        <div class="gold-line center"></div>
+        <p class="body-text">You don't need to know exactly what you want before getting in touch. Whether you're certain or simply curious — I'm happy to chat through options, answer questions, and let you take your time. There's no commitment until you're completely ready.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div class="footer-monogram"><span>WAC</span></div>
+        <span class="footer-name">Without a Clasp</span>
+        <span class="footer-sub">Permanent Jewellery</span>
+        <p class="footer-tagline">Handcrafted permanent jewellery — fitted and welded to last a lifetime.</p>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="experience.html">The Experience</a>
+          <a href="prices.html">Prices</a>
+          <a href="aftercare.html">Aftercare</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <span class="footer-copy">&copy; 2026 Without a Clasp. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin — Without a Clasp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── Variables ─────────────────────────────────── */
+    :root {
+      --bg:        #16191500;
+      --surface:   #1e221b;
+      --surface2:  #252922;
+      --border:    rgba(201,168,76,0.18);
+      --border-hi: rgba(201,168,76,0.5);
+      --gold:      #e8c05a;
+      --gold-dim:  rgba(232,192,90,0.85);
+      --text:      #ddd9d1;
+      --text-dim:  rgba(221,217,209,0.52);
+      --input-bg:  #2c302a;
+      --danger:    #c07070;
+      --success:   #7aaa6e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      background: #191c18;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: var(--gold); }
+    a:hover { opacity: 0.8; }
+    button { cursor: pointer; font-family: 'Jost', sans-serif; }
+
+    /* ── Password Gate ─────────────────────────────── */
+    .gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #191c18;
+    }
+    .gate__card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 56px 52px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .gate__monogram {
+      width: 64px; height: 64px;
+      border: 1px solid var(--border-hi);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-family: 'Cormorant SC', serif;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+    }
+    .gate__title {
+      font-family: 'Cormorant SC', serif;
+      font-size: 20px;
+      letter-spacing: 0.3em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .gate__sub {
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      margin-bottom: 36px;
+    }
+    .gate__input {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      padding: 13px 16px;
+      outline: none;
+      margin-bottom: 14px;
+      letter-spacing: 0.08em;
+      transition: border-color 0.2s;
+    }
+    .gate__input:focus { border-color: var(--gold-dim); }
+    .gate__btn {
+      width: 100%;
+      background: var(--gold);
+      color: #1a1d18;
+      border: none;
+      padding: 14px;
+      font-family: 'Cormorant SC', serif;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+    }
+    .gate__btn:hover { opacity: 0.88; }
+    .gate__error {
+      display: none;
+      font-size: 12px;
+      color: var(--danger);
+      margin-top: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Admin Shell ───────────────────────────────── */
+    .admin { display: none; min-height: 100vh; }
+
+    /* ── Header ────────────────────────────────────── */
+    .admin-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #111411;
+      border-bottom: 1px solid var(--border);
+      padding: 0 36px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .admin-header__brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .admin-header__logo {
+      font-family: 'Cormorant SC', serif;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+    }
+    .admin-header__sep {
+      width: 1px; height: 18px;
+      background: var(--border-hi);
+    }
+    .admin-header__label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--text-dim);
+    }
+    .admin-header__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-preview {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      background: transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-preview:hover { border-color: var(--gold-dim); color: var(--text); }
+    .btn-save {
+      background: var(--gold);
+      color: #1a1d18;
+      border: none;
+      padding: 9px 22px;
+      font-family: 'Cormorant SC', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      transition: opacity 0.2s;
+    }
+    .btn-save:hover { opacity: 0.85; }
+    .btn-logout {
+      background: transparent;
+      border: none;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      padding: 8px 4px;
+      transition: color 0.2s;
+    }
+    .btn-logout:hover { color: var(--danger); }
+
+    /* ── Main layout ───────────────────────────────── */
+    .admin-main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 36px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* ── Section ───────────────────────────────────── */
+    .adm-section { }
+    .adm-section__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .adm-section__title {
+      font-family: 'Cormorant SC', serif;
+      font-size: 15px;
+      letter-spacing: 0.3em;
+      color: var(--text);
+    }
+    .adm-section__tag {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--gold-dim);
+    }
+
+    /* ── Price card editor ─────────────────────────── */
+    .card-block {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .card-block__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .card-block.open .card-block__head { border-bottom-color: var(--border); }
+    .card-block__name {
+      font-family: 'Cormorant SC', serif;
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      color: var(--text);
+    }
+    .card-block__toggle {
+      font-size: 18px;
+      color: var(--gold-dim);
+      line-height: 1;
+      transition: transform 0.25s;
+    }
+    .card-block.open .card-block__toggle { transform: rotate(45deg); }
+    .card-block__body {
+      display: none;
+      padding: 20px;
+    }
+    .card-block.open .card-block__body { display: block; }
+
+    /* ── Row editor ────────────────────────────────── */
+    .row-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+    }
+    .row-table th {
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      color: var(--gold-dim);
+      font-weight: 400;
+      text-align: left;
+      padding: 0 0 10px 0;
+      font-family: 'Cormorant SC', serif;
+    }
+    .row-table th:last-child { width: 40px; }
+    .row-table td { padding: 4px 8px 4px 0; vertical-align: middle; }
+    .row-table td:last-child { padding-right: 0; text-align: center; }
+    .row-table tr:first-child td { padding-top: 0; }
+
+    .row-input {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid rgba(201,168,76,0.12);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      padding: 9px 12px;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+    }
+    .row-input:focus { border-color: var(--gold-dim); }
+    .row-input.price-input { width: 80px; text-align: right; }
+
+    .poa-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+    }
+    .poa-wrap input[type="checkbox"] {
+      accent-color: var(--gold);
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+    }
+
+    .btn-remove-row {
+      background: transparent;
+      border: none;
+      color: rgba(192,112,112,0.5);
+      font-size: 18px;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+    .btn-remove-row:hover { color: var(--danger); }
+
+    .btn-add-row {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gold-dim);
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      font-family: 'Cormorant SC', serif;
+      padding: 8px 16px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-add-row:hover { border-color: var(--gold-dim); color: var(--gold); }
+
+    /* ── Add-on editor ─────────────────────────────── */
+    .addon-row {
+      display: grid;
+      grid-template-columns: 160px 140px 1fr 36px;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .addon-col-label {
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      color: var(--gold-dim);
+      font-family: 'Cormorant SC', serif;
+      padding-bottom: 6px;
+    }
+    .addon-headers {
+      display: grid;
+      grid-template-columns: 160px 140px 1fr 36px;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    /* ── Info box ──────────────────────────────────── */
+    .info-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 28px 32px;
+    }
+    .info-box__title {
+      font-family: 'Cormorant SC', serif;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .info-box ol {
+      list-style: none;
+      counter-reset: steps;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .info-box ol li {
+      counter-increment: steps;
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-dim);
+    }
+    .info-box ol li::before {
+      content: counter(steps);
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--gold);
+      flex-shrink: 0;
+      width: 16px;
+    }
+    .info-box code {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      background: rgba(255,255,255,0.06);
+      padding: 2px 6px;
+      color: var(--text);
+    }
+
+    /* ── Toast notification ────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--surface2);
+      border: 1px solid var(--gold-dim);
+      color: var(--text);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      padding: 14px 22px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      z-index: 999;
+    }
+    .toast.show { display: flex; }
+    .toast__dot { width: 6px; height: 6px; background: var(--success); flex-shrink: 0; }
+
+    /* ── Change Password ───────────────────────────── */
+    .pwd-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .pwd-row .row-input { width: 200px; flex: none; }
+    .btn-change-pwd {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      font-family: 'Cormorant SC', serif;
+      padding: 9px 16px;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-change-pwd:hover { border-color: var(--gold-dim); color: var(--text); }
+    .pwd-msg {
+      font-size: 12px;
+      color: var(--success);
+      margin-top: 8px;
+      display: none;
+    }
+
+    /* ── Responsive ────────────────────────────────── */
+    @media (max-width: 700px) {
+      .admin-main { padding: 24px 16px 60px; }
+      .admin-header { padding: 0 16px; }
+      .admin-header__label { display: none; }
+      .admin-header__sep { display: none; }
+      .addon-row, .addon-headers { grid-template-columns: 1fr 100px 36px; }
+      .addon-row > :nth-child(3), .addon-headers > :nth-child(3) { display: none; }
+      .row-table { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── PASSWORD GATE ── -->
+  <div class="gate" id="gate">
+    <div class="gate__card">
+      <div class="gate__monogram">WAC</div>
+      <div class="gate__title">Admin Portal</div>
+      <p class="gate__sub">Without a Clasp &nbsp;·&nbsp; Prices Manager</p>
+      <form id="gateForm">
+        <input class="gate__input" type="password" id="gatePassword" placeholder="Enter password" autocomplete="current-password"/>
+        <button class="gate__btn" type="submit">Enter</button>
+        <div class="gate__error" id="gateError">Incorrect password — please try again.</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── ADMIN PORTAL ── -->
+  <div class="admin" id="admin">
+
+    <header class="admin-header">
+      <div class="admin-header__brand">
+        <span class="admin-header__logo">WAC</span>
+        <span class="admin-header__sep"></span>
+        <span class="admin-header__label">Prices Admin</span>
+      </div>
+      <div class="admin-header__actions">
+        <a class="btn-preview" href="prices.html" target="_blank">Preview Page ↗</a>
+        <button class="btn-save" id="saveBtn">Save &amp; Download</button>
+        <button class="btn-logout" id="logoutBtn">Log out</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+
+      <!-- ── PRICE CARDS ── -->
+      <section class="adm-section">
+        <div class="adm-section__head">
+          <span class="adm-section__title">Main Prices</span>
+          <span class="adm-section__tag">Click a category to expand</span>
+        </div>
+        <div id="cardEditor">
+          <!-- Generated by JS -->
+        </div>
+      </section>
+
+      <!-- ── ADD-ONS ── -->
+      <section class="adm-section">
+        <div class="adm-section__head">
+          <span class="adm-section__title">Add-Ons &amp; Extras</span>
+          <span class="adm-section__tag">Charms, re-welds, specials</span>
+        </div>
+        <div class="card-block open">
+          <div class="card-block__body" style="display:block">
+            <div class="addon-headers">
+              <span class="addon-col-label">Name</span>
+              <span class="addon-col-label">Price Text</span>
+              <span class="addon-col-label">Description</span>
+              <span></span>
+            </div>
+            <div id="addonEditor">
+              <!-- Generated by JS -->
+            </div>
+            <button class="btn-add-row" id="addAddonBtn" style="margin-top:8px">+ Add Item</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── HOW TO PUBLISH ── -->
+      <section class="adm-section">
+        <div class="adm-section__head">
+          <span class="adm-section__title">How to Publish</span>
+        </div>
+        <div class="info-box">
+          <div class="info-box__title">Saving your changes to the live website</div>
+          <ol>
+            <li>Click <strong>Save &amp; Download</strong> above — a file called <code>prices-data.js</code> will download to your computer.</li>
+            <li>Go to your GitHub repository and open the folder <code>js</code>.</li>
+            <li>Click on <code>prices-data.js</code>, then click the pencil (edit) icon.</li>
+            <li>Select all the existing text, delete it, and paste the content of your downloaded file.</li>
+            <li>Click <strong>Commit changes</strong> — your live prices page will update within a minute or two.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ── CHANGE PASSWORD ── -->
+      <section class="adm-section">
+        <div class="adm-section__head">
+          <span class="adm-section__title">Change Password</span>
+        </div>
+        <div class="card-block open">
+          <div class="card-block__body" style="display:block">
+            <div class="pwd-row">
+              <input class="row-input" type="password" id="newPwd" placeholder="New password" autocomplete="new-password"/>
+              <input class="row-input" type="password" id="confirmPwd" placeholder="Confirm password" autocomplete="new-password"/>
+              <button class="btn-change-pwd" id="changePwdBtn">Update Password</button>
+            </div>
+            <div class="pwd-msg" id="pwdMsg">Password updated successfully.</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ── TOAST ── -->
+  <div class="toast" id="toast">
+    <span class="toast__dot"></span>
+    <span id="toastMsg">File downloaded — upload to GitHub to publish.</span>
+  </div>
+
+  <script src="js/prices-data.js"></script>
+  <script>
+    /* ═══════════════════════════════════════════════════════
+       WITHOUT A CLASP — Admin Portal Logic
+       ═══════════════════════════════════════════════════════ */
+
+    /* ── Password ────────────────────────────────────────── */
+    var DEFAULT_PASSWORD = 'wac2026'; // Change this to update the default password
+
+    function getPassword() {
+      return localStorage.getItem('wac_admin_pwd') || DEFAULT_PASSWORD;
+    }
+
+    /* ── Gate ────────────────────────────────────────────── */
+    var gate      = document.getElementById('gate');
+    var adminEl   = document.getElementById('admin');
+    var gateForm  = document.getElementById('gateForm');
+    var gateInput = document.getElementById('gatePassword');
+    var gateError = document.getElementById('gateError');
+
+    // Auto-login if session active
+    if (sessionStorage.getItem('wac_admin_auth') === '1') unlockAdmin();
+
+    gateForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (gateInput.value === getPassword()) {
+        sessionStorage.setItem('wac_admin_auth', '1');
+        unlockAdmin();
+      } else {
+        gateError.style.display = 'block';
+        gateInput.value = '';
+        gateInput.focus();
+      }
+    });
+
+    function unlockAdmin() {
+      gate.style.display = 'none';
+      adminEl.style.display = 'block';
+      buildEditors();
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', function () {
+      sessionStorage.removeItem('wac_admin_auth');
+      location.reload();
+    });
+
+    /* ── Working data copy ───────────────────────────────── */
+    // Deep clone the source data so edits don't touch the original object
+    var data = JSON.parse(JSON.stringify(WAC_PRICES));
+
+    /* ── Build card editors ──────────────────────────────── */
+    function buildEditors() {
+      buildCardEditor();
+      buildAddonEditor();
+    }
+
+    function buildCardEditor() {
+      var container = document.getElementById('cardEditor');
+      container.innerHTML = '';
+      data.cards.forEach(function (card, ci) {
+        var block = document.createElement('div');
+        block.className = 'card-block';
+        block.innerHTML =
+          '<div class="card-block__head">' +
+            '<span class="card-block__name">' + card.title + '</span>' +
+            '<span class="card-block__toggle">+</span>' +
+          '</div>' +
+          '<div class="card-block__body">' +
+            '<table class="row-table">' +
+              '<thead><tr>' +
+                '<th>Item Name</th>' +
+                '<th>Material / Note</th>' +
+                '<th style="width:90px">Price (£)</th>' +
+                '<th style="width:60px;text-align:center">POA</th>' +
+                '<th></th>' +
+              '</tr></thead>' +
+              '<tbody id="rows_' + ci + '"></tbody>' +
+            '</table>' +
+            '<button class="btn-add-row" data-card="' + ci + '">+ Add Row</button>' +
+          '</div>';
+
+        // Toggle
+        block.querySelector('.card-block__head').addEventListener('click', function () {
+          block.classList.toggle('open');
+        });
+
+        // Add row
+        block.querySelector('.btn-add-row').addEventListener('click', function () {
+          data.cards[ci].rows.push({ name: '', material: '', price: '', poa: false });
+          refreshCardRows(ci);
+        });
+
+        container.appendChild(block);
+        refreshCardRows(ci);
+      });
+    }
+
+    function refreshCardRows(ci) {
+      var tbody = document.getElementById('rows_' + ci);
+      tbody.innerHTML = '';
+      data.cards[ci].rows.forEach(function (row, ri) {
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td><input class="row-input" type="text" value="' + esc(row.name) + '" placeholder="Item name"/></td>' +
+          '<td><input class="row-input" type="text" value="' + esc(row.material) + '" placeholder="Material or note"/></td>' +
+          '<td><input class="row-input price-input" type="text" value="' + esc(row.price) + '" placeholder="e.g. 55"/></td>' +
+          '<td style="text-align:center"><label class="poa-wrap"><input type="checkbox"' + (row.poa ? ' checked' : '') + '/> POA</label></td>' +
+          '<td><button class="btn-remove-row" title="Remove row">&times;</button></td>';
+
+        var inputs = tr.querySelectorAll('input[type="text"]');
+        inputs[0].addEventListener('input', function () { data.cards[ci].rows[ri].name     = this.value; });
+        inputs[1].addEventListener('input', function () { data.cards[ci].rows[ri].material = this.value; });
+        inputs[2].addEventListener('input', function () { data.cards[ci].rows[ri].price    = this.value; });
+
+        tr.querySelector('input[type="checkbox"]').addEventListener('change', function () {
+          data.cards[ci].rows[ri].poa = this.checked;
+        });
+
+        tr.querySelector('.btn-remove-row').addEventListener('click', function () {
+          if (data.cards[ci].rows.length <= 1) return;
+          data.cards[ci].rows.splice(ri, 1);
+          refreshCardRows(ci);
+        });
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    /* ── Build addon editor ──────────────────────────────── */
+    function buildAddonEditor() {
+      var container = document.getElementById('addonEditor');
+      container.innerHTML = '';
+      data.addons.forEach(function (addon, ai) {
+        appendAddonRow(container, addon, ai);
+      });
+    }
+
+    function appendAddonRow(container, addon, ai) {
+      var row = document.createElement('div');
+      row.className = 'addon-row';
+      row.innerHTML =
+        '<input class="row-input" type="text" value="' + esc(addon.name)  + '" placeholder="Name"/>' +
+        '<input class="row-input" type="text" value="' + esc(addon.price) + '" placeholder="e.g. from £15"/>' +
+        '<input class="row-input" type="text" value="' + esc(addon.desc)  + '" placeholder="Short description"/>' +
+        '<button class="btn-remove-row" title="Remove">&times;</button>';
+
+      var inputs = row.querySelectorAll('input');
+      inputs[0].addEventListener('input', function () { data.addons[ai].name  = this.value; });
+      inputs[1].addEventListener('input', function () { data.addons[ai].price = this.value; });
+      inputs[2].addEventListener('input', function () { data.addons[ai].desc  = this.value; });
+
+      row.querySelector('.btn-remove-row').addEventListener('click', function () {
+        data.addons.splice(ai, 1);
+        buildAddonEditor(); // Rebuild to re-sync indices
+      });
+
+      container.appendChild(row);
+    }
+
+    document.getElementById('addAddonBtn').addEventListener('click', function () {
+      var ai = data.addons.length;
+      data.addons.push({ name: '', icon: 'star', price: '', desc: '' });
+      appendAddonRow(document.getElementById('addonEditor'), data.addons[ai], ai);
+    });
+
+    /* ── Save & Download ─────────────────────────────────── */
+    document.getElementById('saveBtn').addEventListener('click', function () {
+      // Also save to localStorage so prices.html reflects changes immediately
+      try { localStorage.setItem('wac_prices', JSON.stringify(data)); } catch (e) {}
+
+      // Generate the JS file
+      var now = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+      var content =
+        '/* ═══════════════════════════════════════════════════════\n' +
+        '   WITHOUT A CLASP — Price Data\n' +
+        '   Last updated: ' + now + '\n' +
+        '   Managed via admin.html — do not edit this file directly.\n' +
+        '   ═══════════════════════════════════════════════════════ */\n\n' +
+        'var WAC_PRICES = ' + JSON.stringify(data, null, 2) + ';\n';
+
+      download('prices-data.js', content);
+      showToast('prices-data.js downloaded — upload to GitHub to publish.');
+    });
+
+    function download(filename, text) {
+      var blob = new Blob([text], { type: 'text/javascript' });
+      var url  = URL.createObjectURL(blob);
+      var a    = document.createElement('a');
+      a.href      = url;
+      a.download  = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    /* ── Change password ─────────────────────────────────── */
+    document.getElementById('changePwdBtn').addEventListener('click', function () {
+      var np = document.getElementById('newPwd').value;
+      var cp = document.getElementById('confirmPwd').value;
+      var msg = document.getElementById('pwdMsg');
+      msg.style.display = 'none';
+      if (!np) return;
+      if (np !== cp) { msg.style.color = 'var(--danger)'; msg.textContent = 'Passwords do not match.'; msg.style.display = 'block'; return; }
+      localStorage.setItem('wac_admin_pwd', np);
+      document.getElementById('newPwd').value = '';
+      document.getElementById('confirmPwd').value = '';
+      msg.style.color = 'var(--success)';
+      msg.textContent = 'Password updated successfully.';
+      msg.style.display = 'block';
+    });
+
+    /* ── Toast ───────────────────────────────────────────── */
+    function showToast(msg) {
+      var toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(function () { toast.classList.remove('show'); }, 4000);
+    }
+
+    /* ── Helpers ─────────────────────────────────────────── */
+    function esc(s) {
+      return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+  </script>
+</body>
+</html>
