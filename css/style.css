@@ -42,7 +42,7 @@ ul { list-style: none; }
 /* ── 2. TYPOGRAPHY ────────────────────────────────────── */
 .section-tag {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 18px;
   letter-spacing: 0.55em;
   color: var(--gold);
   display: block;
@@ -115,7 +115,7 @@ ul { list-style: none; }
 
 .nav-logo {
   font-family: 'Cormorant SC', serif;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.38em;
   color: var(--charcoal);
   transition: opacity 0.25s;
@@ -180,7 +180,7 @@ ul { list-style: none; }
 
 .overlay-eyebrow {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.55em;
   color: rgba(202,217,194,0.5);
   margin-bottom: 48px;
@@ -216,7 +216,7 @@ ul { list-style: none; }
 
 .overlay-cta {
   font-family: 'Cormorant SC', serif;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0.35em;
   color: var(--gold);
   border: 1px solid var(--gold);
@@ -232,7 +232,7 @@ ul { list-style: none; }
 }
 .overlay-social a {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.35em;
   color: rgba(255,255,255,0.72);
   transition: color 0.25s;
@@ -243,7 +243,7 @@ ul { list-style: none; }
 .btn {
   display: inline-block;
   font-family: 'Cormorant SC', serif;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.32em;
   padding: 15px 40px;
   transition: all 0.35s;
@@ -331,7 +331,7 @@ ul { list-style: none; }
 
 .hero-eyebrow {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.5em;
   color: var(--gold-lt);
   display: block;
@@ -377,7 +377,7 @@ ul { list-style: none; }
   gap: 10px;
   color: rgba(255,255,255,0.75);
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.3em;
 }
 .hero-scroll__line {
@@ -411,7 +411,7 @@ ul { list-style: none; }
 
 .breadcrumb {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.45em;
   color: rgba(44,48,42,0.45);
   margin-bottom: 32px;
@@ -524,7 +524,7 @@ ul { list-style: none; }
 
 .pillar__num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.45em;
   color: var(--gold);
   display: block;
@@ -576,7 +576,7 @@ ul { list-style: none; }
   position: absolute;
   bottom: 22px; left: 22px;
   font-family: 'Cormorant SC', serif;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.28em;
   color: var(--white);
   opacity: 0;
@@ -611,7 +611,7 @@ ul { list-style: none; }
 .gallery-rule.r { background: linear-gradient(to left, transparent, rgba(201,168,76,0.4)); }
 .gallery-link {
   font-family: 'Cormorant SC', serif;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.35em;
   color: rgba(255,255,255,0.82);
   transition: color 0.25s;
@@ -655,7 +655,7 @@ ul { list-style: none; }
 }
 .step__title {
   font-family: 'Cormorant SC', serif;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.2em;
   color: var(--charcoal);
   margin-bottom: 12px;
@@ -732,7 +732,7 @@ ul { list-style: none; }
 }
 .testimonial__stars {
   color: var(--gold);
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 3px;
   margin-bottom: 12px;
 }
@@ -747,7 +747,7 @@ ul { list-style: none; }
 }
 .testimonial__name {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.3em;
   color: var(--gold);
 }
@@ -772,7 +772,7 @@ ul { list-style: none; }
 }
 .stat__label {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.35em;
   color: rgba(255,255,255,0.78);
 }
@@ -840,7 +840,7 @@ ul { list-style: none; }
   font-weight: 400;
   white-space: nowrap;
 }
-.price-amount sup { font-size: 12px; vertical-align: super; }
+.price-amount sup { font-size: 14px; vertical-align: super; }
 
 .material-bar {
   display: flex;
@@ -852,13 +852,13 @@ ul { list-style: none; }
 }
 .material-bar__label {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.35em;
   color: #aaa;
 }
 .badge {
   font-family: 'Cormorant SC', serif;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.22em;
   padding: 3px 10px;
 }
@@ -889,7 +889,7 @@ ul { list-style: none; }
 }
 .addon__name {
   font-family: 'Cormorant SC', serif;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.2em;
   color: var(--white);
   margin-bottom: 6px;
@@ -925,7 +925,7 @@ ul { list-style: none; }
 .feature-dot { width: 5px; height: 5px; background: var(--gold); flex-shrink: 0; }
 .feature-text {
   font-family: 'Cormorant SC', serif;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0.2em;
   color: rgba(44,48,42,0.82);
 }
@@ -954,7 +954,7 @@ ul { list-style: none; }
 .includes__inner { max-width: 1000px; margin: 0 auto; text-align: center; }
 .includes__label {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.5em;
   color: var(--sage-dark);
   margin-bottom: 32px;
@@ -964,7 +964,7 @@ ul { list-style: none; }
 .include-icon { width: 34px; height: 34px; }
 .include-label {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.18em;
   color: rgba(44,48,42,0.6);
   line-height: 1.6;
@@ -1037,7 +1037,7 @@ ul { list-style: none; }
 .value-card:hover { background: #bbcdb4; }
 .value-card__num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.45em;
   color: var(--gold);
   display: block;
@@ -1123,7 +1123,7 @@ ul { list-style: none; }
   justify-content: center;
   flex-shrink: 0;
   font-family: 'Jost', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--gold);
   transition: transform 0.3s;
 }
@@ -1167,12 +1167,12 @@ ul { list-style: none; }
 }
 .form-group label {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.4em;
   color: var(--gold);
 }
 .req { color: var(--gold); }
-.optional { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.05em; color: rgba(85,85,80,0.5); font-weight: 300; }
+.optional { font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.05em; color: rgba(85,85,80,0.5); font-weight: 300; }
 
 .contact-form input,
 .contact-form select,
@@ -1208,7 +1208,7 @@ ul { list-style: none; }
 }
 
 .form-error {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.05em;
   color: #b06060;
   display: none;
@@ -1228,7 +1228,7 @@ ul { list-style: none; }
   border: 1px solid var(--sage-deep);
   padding: 20px 24px;
   font-family: 'Cormorant SC', serif;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.2em;
   color: var(--sage-dark);
   margin-top: 8px;
@@ -1271,7 +1271,7 @@ ul { list-style: none; }
 }
 .contact-detail__label {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.35em;
   color: var(--gold);
   display: block;
@@ -1289,7 +1289,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
 .contact-social { margin-bottom: 36px; }
 .contact-social__label {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.4em;
   color: var(--gold);
   display: block;
@@ -1301,7 +1301,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
   align-items: center;
   gap: 8px;
   font-family: 'Cormorant SC', serif;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0.2em;
   color: var(--text-body);
   transition: color 0.2s;
@@ -1315,7 +1315,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
 }
 .contact-expect__title {
   font-family: 'Cormorant SC', serif;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0.3em;
   color: var(--charcoal);
   margin-bottom: 14px;
@@ -1339,7 +1339,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
 .contact-expect__list li::before {
   content: counter(expect-counter);
   font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--gold);
   flex-shrink: 0;
   width: 16px;
@@ -1356,7 +1356,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
 }
 .contact-info__label {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px; letter-spacing: 0.35em;
+  font-size: 13px; letter-spacing: 0.35em;
   color: var(--gold); display: block; margin-bottom: 4px;
 }
 .contact-info__value { font-size: 16px; color: var(--text-body); line-height: 1.7; }
@@ -1408,7 +1408,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
 }
 .footer-sub {
   font-family: 'Cormorant SC', serif;
-  font-size: 9px;
+  font-size: 13px;
   letter-spacing: 0.45em;
   color: rgba(255,255,255,0.88);
 }
@@ -1422,7 +1422,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
 }
 .footer-nav a {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.28em;
   color: rgba(255,255,255,0.82);
   transition: color 0.25s;
@@ -1433,11 +1433,11 @@ a.contact-detail__value:hover { color: var(--charcoal); }
   justify-content: space-between;
   align-items: center;
 }
-.footer-copy { font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.78); }
+.footer-copy { font-size: 14px; letter-spacing: 0.1em; color: rgba(255,255,255,0.78); }
 .footer-social { display: flex; gap: 20px; }
 .footer-social a {
   font-family: 'Cormorant SC', serif;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.28em;
   color: rgba(255,255,255,0.82);
   transition: color 0.25s;
