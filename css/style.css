@@ -29,7 +29,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 18px;
   background: var(--cream);
   color: var(--charcoal);
   overflow-x: hidden;
@@ -66,7 +66,7 @@ ul { list-style: none; }
 .section-title.on-sage em { color: var(--gold); }
 
 .body-text {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 2;
   color: var(--text-body);
   font-weight: 300;
@@ -357,7 +357,7 @@ ul { list-style: none; }
 }
 
 .hero-sub {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 200;
   letter-spacing: 0.15em;
   color: rgba(255,255,255,0.8);
@@ -430,7 +430,7 @@ ul { list-style: none; }
 .page-title em { font-style: italic; color: var(--gold); }
 
 .page-subtitle {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 200;
   letter-spacing: 0.1em;
   line-height: 2;
@@ -538,7 +538,7 @@ ul { list-style: none; }
   margin-bottom: 16px;
 }
 .pillar__body {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.9;
   color: rgba(44,48,42,0.82);
   font-weight: 200;
@@ -660,7 +660,7 @@ ul { list-style: none; }
   color: var(--charcoal);
   margin-bottom: 12px;
 }
-.step__body { font-size: 13px; line-height: 1.85; color: #888; font-weight: 300; }
+.step__body { font-size: 16px; line-height: 1.85; color: #888; font-weight: 300; }
 
 /* ── 13. CTA BANNERS ──────────────────────────────────── */
 .cta-sage {
@@ -697,7 +697,7 @@ ul { list-style: none; }
 }
 .cta__inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
 .cta__sub {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 200;
   letter-spacing: 0.1em;
   line-height: 1.9;
@@ -779,7 +779,7 @@ ul { list-style: none; }
 .stat-sep { width: 1px; height: 36px; background: rgba(255,255,255,0.1); }
 
 .prices-intro { text-align: center; max-width: 640px; margin: 0 auto 72px; }
-.prices-intro p { font-size: 15px; line-height: 2; color: var(--text-body); }
+.prices-intro p { font-size: 18px; line-height: 2; color: var(--text-body); }
 
 .price-grid {
   display: grid;
@@ -828,7 +828,7 @@ ul { list-style: none; }
   font-weight: 400;
 }
 .price-item-note {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.07em;
   color: var(--sage-rich);
   font-weight: 200;
@@ -895,7 +895,7 @@ ul { list-style: none; }
   margin-bottom: 6px;
 }
 .addon__price { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--gold); }
-.addon__desc { font-size: 12px; color: rgba(255,255,255,0.82); line-height: 1.7; margin-top: 8px; font-weight: 200; }
+.addon__desc { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.7; margin-top: 8px; font-weight: 200; }
 
 /* ── 17. GROUP BOOKING ────────────────────────────────── */
 .group { background: var(--sage); }
@@ -918,7 +918,7 @@ ul { list-style: none; }
   letter-spacing: 0.03em;
 }
 .group__title em { font-style: italic; color: var(--gold); }
-.group__body { font-size: 14px; line-height: 2; color: rgba(44,48,42,0.82); font-weight: 200; margin-bottom: 32px; }
+.group__body { font-size: 17px; line-height: 2; color: rgba(44,48,42,0.82); font-weight: 200; margin-bottom: 32px; }
 
 .feature-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
 .feature-item { display: flex; align-items: center; gap: 12px; }
@@ -999,7 +999,7 @@ ul { list-style: none; }
   color: var(--charcoal);
   margin-bottom: 14px;
 }
-.aftercare-card__body { font-size: 14px; line-height: 1.95; color: var(--text-body); font-weight: 300; }
+.aftercare-card__body { font-size: 16px; line-height: 1.95; color: var(--text-body); font-weight: 300; }
 
 /* ── 20. ABOUT ────────────────────────────────────────── */
 .about-bio {
@@ -1017,7 +1017,7 @@ ul { list-style: none; }
   margin-bottom: 40px;
   letter-spacing: 0.02em;
 }
-.about-bio__text { font-size: 15px; line-height: 2; color: var(--text-body); }
+.about-bio__text { font-size: 18px; line-height: 2; color: var(--text-body); }
 .about-bio__text p + p { margin-top: 16px; }
 
 .values { background: var(--sage); padding: var(--section-pad); }
@@ -1050,7 +1050,7 @@ ul { list-style: none; }
   color: var(--charcoal);
   margin-bottom: 14px;
 }
-.value-card__body { font-size: 14px; line-height: 1.9; color: rgba(44,48,42,0.82); font-weight: 200; }
+.value-card__body { font-size: 16px; line-height: 1.9; color: rgba(44,48,42,0.82); font-weight: 200; }
 
 /* ── 21. EXPERIENCE ───────────────────────────────────── */
 .exp-steps { background: var(--cream); padding: var(--section-pad); }
@@ -1092,7 +1092,7 @@ ul { list-style: none; }
   color: var(--charcoal);
   margin-bottom: 14px;
 }
-.exp-step__body { font-size: 14.5px; line-height: 2; color: var(--text-body); font-weight: 300; }
+.exp-step__body { font-size: 17px; line-height: 2; color: var(--text-body); font-weight: 300; }
 
 /* ── 22. FAQ ──────────────────────────────────────────── */
 .faq { background: var(--sage); padding: var(--section-pad); }
@@ -1109,7 +1109,7 @@ ul { list-style: none; }
   padding: 20px 0;
   cursor: pointer;
   font-family: 'Cormorant SC', serif;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.15em;
   color: var(--charcoal);
   gap: 16px;
@@ -1129,7 +1129,7 @@ ul { list-style: none; }
 }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-item__a {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 2;
   color: rgba(44,48,42,0.85);
   font-weight: 300;
@@ -1181,7 +1181,7 @@ ul { list-style: none; }
   border: 1px solid rgba(168,185,160,0.4);
   padding: 13px 16px;
   font-family: 'Jost', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--charcoal);
   outline: none;
@@ -1241,7 +1241,7 @@ ul { list-style: none; }
   border: 1px solid rgba(168,185,160,0.35);
   padding: 13px 16px;
   font-family: 'Jost', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--charcoal);
   outline: none;
@@ -1278,7 +1278,7 @@ ul { list-style: none; }
   margin-bottom: 5px;
 }
 .contact-detail__value {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-body);
   line-height: 1.7;
   display: block;
@@ -1331,7 +1331,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
   counter-increment: expect-counter;
   display: flex;
   gap: 12px;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.75;
   color: var(--text-body);
   font-weight: 300;
@@ -1359,12 +1359,12 @@ a.contact-detail__value:hover { color: var(--charcoal); }
   font-size: 10px; letter-spacing: 0.35em;
   color: var(--gold); display: block; margin-bottom: 4px;
 }
-.contact-info__value { font-size: 14px; color: var(--text-body); line-height: 1.7; }
+.contact-info__value { font-size: 16px; color: var(--text-body); line-height: 1.7; }
 
 /* ── 24. NOTE / ASIDE SECTION ─────────────────────────── */
 .note-section { background: var(--cream); padding: 72px 60px; }
 .note-section__inner { max-width: 800px; margin: 0 auto; text-align: center; }
-.note-section__text { font-size: 14px; line-height: 2; color: var(--text-body); }
+.note-section__text { font-size: 17px; line-height: 2; color: var(--text-body); }
 .note-section__text strong {
   font-family: 'Cormorant SC', serif;
   font-weight: 400;
@@ -1412,7 +1412,7 @@ a.contact-detail__value:hover { color: var(--charcoal); }
   letter-spacing: 0.45em;
   color: rgba(255,255,255,0.88);
 }
-.footer-tagline { font-size: 13px; font-weight: 200; color: rgba(255,255,255,0.9); line-height: 1.8; }
+.footer-tagline { font-size: 15px; font-weight: 200; color: rgba(255,255,255,0.9); line-height: 1.8; }
 .footer-nav {
   display: flex;
   gap: 28px;
