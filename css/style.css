@@ -524,7 +524,7 @@ ul { list-style: none; }
 
 .pillar__num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
+  font-size: 16px;
   letter-spacing: 0.45em;
   color: var(--gold);
   display: block;
